@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+  background: #f7f7fa;
+  color: #222;
+}
+nav {
+  direction: rtl;
+}
+h1, h2 {
+  font-weight: bold;
+}
