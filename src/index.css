@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
-  background: #f7f7fa;
+  background: url('https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
+  background-size: cover;
   color: #222;
 }
 nav {
@@ -9,4 +10,10 @@ nav {
 }
 h1, h2 {
   font-weight: bold;
+}
+/* طبقة شفافة فوق الخلفية لسهولة القراءة */
+#root > * {
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  margin-bottom: 24px;
 }
