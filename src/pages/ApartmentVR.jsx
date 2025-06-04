@@ -1,7 +1,6 @@
 import React from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, useGLTF } from "@react-three/drei";
 import { useLocation } from "react-router-dom";
+import VRDemo from "../components/VRDemo";
 
 // نفس بيانات الوحدات من MapView
 const units = [
@@ -51,27 +50,16 @@ function getUnitById(id) {
 	return units.find((u) => u.id === Number(id)) || units[0];
 }
 
-function ApartmentModel({ url }) {
-	const gltf = useGLTF(url);
-	return <primitive object={gltf.scene} scale={1.5} />;
-}
-
 export default function ApartmentVR() {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
 	const unitId = params.get("unit");
 	const unit = getUnitById(unitId);
 	return (
-		<div style={{ height: "80vh", width: "100%" }}>
+		<div style={{ height: "auto", width: "100%" }}>
 			<h2>جولة ثلاثية الأبعاد: {unit.name}</h2>
-			<Canvas camera={{ position: [0, 2, 5] }} shadows>
-				<ambientLight intensity={0.7} />
-				<directionalLight position={[10, 10, 5]} intensity={1} />
-				<ApartmentModel url={unit.vrModel} />
-				<OrbitControls />
-				<Environment preset="city" />
-			</Canvas>
-			<p>
+			<VRDemo modelUrl={unit.vrModel} />
+			<p style={{ textAlign: "center" }}>
 				يمكنك تدوير واستكشاف الوحدة. دعم VR (بدون نظارة) متاح. دعم VR بالنظارة
 				قريبًا.
 			</p>

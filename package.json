@@ -2,9 +2,13 @@
   "dependencies": {
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
+    "aframe": "^1.7.1",
+    "aframe-react": "^4.4.0",
     "leaflet": "^1.9.4",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.6.2",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "three": "^0.177.0"
   },
   "devDependencies": {
