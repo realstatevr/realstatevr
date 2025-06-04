@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import MapView from "./pages/MapView";
 import ApartmentVR from "./pages/ApartmentVR";
+import Palaces from "./pages/Palaces";
+import Villas from "./pages/Villas";
+import Apartments from "./pages/Apartments";
+import Units from "./pages/Units";
 
 const navStyle = {
   display: "flex",
@@ -38,6 +42,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/map" element={<MapView />} />
         <Route path="/vr" element={<ApartmentVR />} />
+        <Route path="/palaces" element={<Palaces />} />
+        <Route path="/villas" element={<Villas />} />
+        <Route path="/apartments" element={<Apartments />} />
+        <Route path="/units" element={<Units />} />
         {/* صفحات الأقسام الأخرى تضاف لاحقًا */}
       </Routes>
     </BrowserRouter>
