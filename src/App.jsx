@@ -10,6 +10,7 @@ import Units from "./pages/Units";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import AddUnit from "./pages/AddUnit";
 
 const sections = [
   { label: "القصور", path: "/palaces" },
@@ -70,6 +71,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/add-unit" element={<AddUnit />} />
         {/* صفحات الأقسام الأخرى تضاف لاحقًا */}
       </Routes>
     </BrowserRouter>
