@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import MapGL, { Marker, Popup } from "react-map-gl";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 // بيانات وحدات تجريبية (قصور، فيلات، شقق، مشاريع شركات، دول مختلفة)
 const units = [
@@ -120,7 +121,10 @@ const units = [
 const icons = {
   "قصر": "🏰",
   "فيلا": "🏡",
-  "شقة": "🏢"
+  "شقة": "🏢",
+  "محل": "🏬",
+  "عيادة": "🏥",
+  "مكتب": "🏢"
 };
 
 export default function MapView() {
@@ -128,45 +132,35 @@ export default function MapView() {
   return (
     <div style={{ height: "80vh", width: "100%" }}>
       <h2>خريطة الوحدات المتاحة</h2>
-      <MapGL
-        initialViewState={{ longitude: 31.2357, latitude: 30.0444, zoom: 5 }}
-        style={{ width: "100%", height: "70vh" }}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      >
+      <MapContainer center={[30.0444, 31.2357]} zoom={6} style={{ width: "100%", height: "70vh" }}>
+        <TileLayer
+          attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
         {units.map((unit) => (
           <Marker
             key={unit.id}
-            longitude={unit.location.longitude}
-            latitude={unit.location.latitude}
-            anchor="bottom"
-            onClick={e => {
-              e.originalEvent.stopPropagation();
-              setSelected(unit);
+            position={[unit.location.latitude, unit.location.longitude]}
+            eventHandlers={{
+              click: () => setSelected(unit)
             }}
           >
-            <span style={{ fontSize: 32, cursor: "pointer" }}>{icons[unit.type] || "🏠"}</span>
+            {selected && selected.id === unit.id && (
+              <Popup onClose={() => setSelected(null)}>
+                <div style={{ minWidth: 180 }}>
+                  <b>{unit.name}</b>
+                  <div>{unit.type} - {unit.city}, {unit.country}</div>
+                  <div>المالك: {unit.ownerType}</div>
+                  <div>الحالة: {unit.status}</div>
+                  <div>الشركة: {unit.company}</div>
+                  <div style={{ margin: "8px 0" }}>{unit.description}</div>
+                  <a href={`/vr?unit=${unit.id}`}>جولة VR</a>
+                </div>
+              </Popup>
+            )}
           </Marker>
         ))}
-        {selected && (
-          <Popup
-            longitude={selected.location.longitude}
-            latitude={selected.location.latitude}
-            anchor="top"
-            onClose={() => setSelected(null)}
-          >
-            <div style={{ minWidth: 180 }}>
-              <b>{selected.name}</b>
-              <div>{selected.type} - {selected.city}, {selected.country}</div>
-              <div>المالك: {selected.ownerType}</div>
-              <div>الحالة: {selected.status}</div>
-              <div>الشركة: {selected.company}</div>
-              <div style={{ margin: "8px 0" }}>{selected.description}</div>
-              <a href={`/vr?unit=${selected.id}`}>جولة VR</a>
-            </div>
-          </Popup>
-        )}
-      </MapGL>
+      </MapContainer>
       <p>اضغط على أي رمز لرؤية تفاصيل الوحدة وتجربة VR.</p>
     </div>
   );
