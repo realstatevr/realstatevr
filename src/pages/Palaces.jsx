@@ -6,7 +6,12 @@ const palaces = [
   { id: 2, name: "قصر البحرين", model: "/models/apartment1.glb", desc: "قصر ملكي في المنامة" },
   { id: 3, name: "قصر الرياض", model: "/models/apartment1.glb", desc: "قصر حديث في الرياض" },
   { id: 4, name: "قصر دبي", model: "/models/apartment1.glb", desc: "قصر عصري في دبي" },
-  { id: 5, name: "قصر الكويت", model: "/models/apartment1.glb", desc: "قصر فاخر في الكويت" }
+  { id: 5, name: "قصر الكويت", model: "/models/apartment1.glb", desc: "قصر فاخر في الكويت" },
+  { id: 6, name: "قصر قطر", model: "/models/apartment1.glb", desc: "قصر فاخر في الدوحة" },
+  { id: 7, name: "قصر أبوظبي", model: "/models/apartment1.glb", desc: "قصر فاخر في أبوظبي" },
+  { id: 8, name: "قصر الشيخ زايد", model: "/models/apartment1.glb", desc: "قصر فاخر في الشيخ زايد" },
+  { id: 9, name: "قصر التجمع الخامس", model: "/models/apartment1.glb", desc: "قصر فاخر في التجمع الخامس" },
+  { id: 10, name: "قصر العاصمة الإدارية", model: "/models/apartment1.glb", desc: "قصر فاخر في العاصمة الإدارية" }
 ];
 
 export default function Palaces() {

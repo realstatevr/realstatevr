@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import AddUnit from "./pages/AddUnit";
+import Register from "./pages/Register";
 
 const sections = [
   { label: "القصور", path: "/palaces" },
@@ -72,6 +73,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-unit" element={<AddUnit />} />
+        <Route path="/register" element={<Register />} />
         {/* صفحات الأقسام الأخرى تضاف لاحقًا */}
       </Routes>
     </BrowserRouter>
