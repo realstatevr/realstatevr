@@ -1,8 +1,7 @@
 body {
   margin: 0;
   font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
-  background: url('https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
-  background-size: cover;
+  background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat fixed;
   color: #222;
 }
 nav {
@@ -11,9 +10,9 @@ nav {
 h1, h2 {
   font-weight: bold;
 }
-/* طبقة شفافة فوق الخلفية لسهولة القراءة */
+/* طبقة شفافة فوق الخلفية لقراءة أفضل */
 #root > * {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.92);
   border-radius: 16px;
   margin-bottom: 24px;
 }
