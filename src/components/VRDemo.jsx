@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "aframe";
 import { Entity, Scene } from "aframe-react";
 
-export default function VRDemo({ modelUrl = "/models/apartment.glb" }) {
+export default function VRDemo({ modelUrl = "/models/dummy.glb" }) {
   const sceneRef = useRef();
   return (
     <div style={{ width: "100%", height: 500, margin: "0 auto", borderRadius: 16, overflow: "hidden", boxShadow: "0 2px 16px #0001" }}>
